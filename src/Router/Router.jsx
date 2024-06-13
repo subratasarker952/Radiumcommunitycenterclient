@@ -1,34 +1,28 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
-import Home from "../Pages/Home/Home";
-import Product from "../Pages/Product/Product";
-import Contact from "../Pages/Contact/Contact";
+import Home from "../Pages/ForAll/Home/Home";
 import Dashboard from "../Pages/DashboardLayout/Admin/Dashboard";
 import DashboardLayout from "../Pages/DashboardLayout/Admin/DashboardLayout";
 import PrivateRoute from "../Components/Auth/PrivateRoute/PrivateRoute";
 import Login from "../Components/Auth/ManualLogin/Login";
 import Register from "../Components/Auth/ManualLogin/Register";
-import Shop from "../Pages/Shop/Shop";
 import Users from "../Pages/Admin/Users";
-import Products from "../Pages/Admin/Products";
-import Orders from "../Pages/Admin/Orders";
-import Delivery from "../Pages/Admin/Delivery";
-import AdminOnly from "../Components/Auth/AdminOnly/AdminOnly";
+// import AdminOnly from "../Components/Auth/AdminOnly/AdminOnly";
 import UserDashboardLayout from "../Pages/DashboardLayout/User/UserDahboardLayout";
 import UserDashboard from "../Pages/DashboardLayout/User/UserDashboard";
-import Cart from "../Pages/User/Cart/Cart";
-import ShippingAddress from "../Pages/User/ShippingAddress/ShippingAddress";
-import ClientOrders from "../Pages/User/ClientOrders/ClientOrders";
 import Payments from "../Pages/User/Payments/Payments";
-import Profile from "../Pages/User/Profile/Profile";
-import Reviews from "../Pages/User/Reviews/Reviews";
-import Wishlist from "../Pages/User/Wishlist/Wishlist";
-import Returns from "../Pages/User/Returns/Returns";
-import OrderHistory from "../Pages/User/OrderHistory/OrderHistory";
-import PaymentSuccess from "../Pages/Payment/PaymentSuccess";
-import PaymentFail from "../Pages/Payment/PaymentFail";
-import PaymentCancel from "../Pages/Payment/PaymentCancel";
-
+// import Profile from "../Pages/User/Profile/Profile";
+import Events from "../Pages/ForAll/Events/Events";
+import EventInDetails from "../Pages/ForAll/EventInDetails/EventInDetails";
+import Booking from "../Pages/ForAll/Booking/Booking";
+import Payment from "../Pages/ForAll/Payment/Payment";
+import EventsInAdmin from "../Pages/Admin/EventsInAdmin";
+import AllBooking from "../Pages/Admin/AllBooking";
+import AllPayment from "../Pages/Admin/AllPayment";
+import PaymentSuccess from "../Pages/ForAll/Payments/PaymentSuccess";
+import PaymentFail from "../Pages/ForAll/Payments/PaymentFail";
+import PaymentCancel from "../Pages/ForAll/Payments/PaymentCancel";
+import AddEvent from "../Pages/Admin/AddEvent";
 
 const router = createBrowserRouter([
   {
@@ -40,18 +34,16 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/shop",
-        element: <Shop />,
+        path: "/events",
+        element: <Events />,
       },
       {
-        path: "/product/:id",
-        element: <Product />,
-        loader: async ({ params }) => await fetch(`http://localhost:5000/product/${params.id}`)
+        path: "/events/:id",
+        element: <EventInDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/events/${params.id}`),
       },
-      {
-        path: "/contact",
-        element: <Contact />,
-      },
+
       {
         path: "/register",
         element: <Register />,
@@ -66,7 +58,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/payment/fail",
-        element: < PaymentFail />,
+        element: <PaymentFail />,
       },
       {
         path: "/payment/cancel",
@@ -74,130 +66,110 @@ const router = createBrowserRouter([
       },
       {
         path: "/user",
-        element:
+        element: (
           <PrivateRoute>
             <UserDashboardLayout />
-          </PrivateRoute>,
+          </PrivateRoute>
+        ),
         children: [
           {
             path: "",
-            element: <UserDashboard />
+            element: <UserDashboard />,
+          },
+          // {
+          //   path: "profile",
+          //   element: <Profile />,
+          // },
+          {
+            path: "booking",
+            element: <Booking />,
           },
           {
-            path: "cart",
-            element: <Cart />
-          },
-          {
-            path: "orderForm",
-            element: < ShippingAddress />
+            path: "payment",
+            element: <Payment />,
           },
           {
             path: "payments",
-            element: < Payments />
+            element: <Payments />,
           },
           {
-            path: "profile",
-            element: < Profile />
-          },
-          {
-            path: "orders",
-            element: < ClientOrders />
-          },
-          {
-            path: "reviews",
-            element: <Reviews />
-          },
-          {
-            path: "wishlist",
-            element: < Wishlist />
-          },
-          {
-            path: "returns",
-            element: < Returns />
-          },
-          {
-            path: "orderHistory",
-            element: < OrderHistory />
+            path: "bookingHistory",
+            element: <h2>Booking history</h2>,
           },
           {
             path: "*",
-            element: <div className="my-6">
-              <h2 className="text-6xl text-pink-500 text-center">404</h2>
-              <h2 className="text-6xl text-pink-500 text-center capitalize">opps! page Not found</h2>
-            </div>
-          }
-        ]
+            element: (
+              <div className="my-6">
+                <h2 className="text-6xl text-pink-500 text-center">404</h2>
+                <h2 className="text-6xl text-pink-500 text-center capitalize">
+                  opps! page Not found
+                </h2>
+              </div>
+            ),
+          },
+        ],
       },
-
 
       {
         path: "/dashboard",
-        element: <PrivateRoute>
-          <AdminOnly>
+        element: (
+          <PrivateRoute>
+            {/* <AdminOnly> */}
             <DashboardLayout />
-          </AdminOnly>
-        </PrivateRoute>,
+            {/* </AdminOnly> */}
+          </PrivateRoute>
+        ),
         children: [
           {
             path: "",
-            element: <Dashboard />
+            element: <Dashboard />,
           },
           {
             path: "users",
             element: <Users />,
           },
           {
-            path: "products",
-            element: < Products />,
+            path: "events",
+            element: <EventsInAdmin />,
           },
           {
-            path: "orders",
-            element: < Orders />,
+            path: "addEvent",
+            element: <AddEvent />,
           },
           {
-            path: "delivery",
-            element: < Delivery />,
+            path: "allBooking",
+            element: <AllBooking />,
           },
           {
-            path: "stats",
-            element: <Dashboard />,
-          },
-          {
-            path: "notification",
-            element: < Dashboard />,
-          },
-          {
-            path: "systemHealth",
-            element: < Dashboard />,
-          },
-          {
-            path: "logs",
-            element: < Dashboard />,
-          },
-          {
-            path: "setting",
-            element: < Dashboard />,
+            path: "allPayment",
+            element: <AllPayment />,
           },
           {
             path: "*",
-            element: <div className="my-6">
-              <h2 className="text-6xl text-pink-500 text-center">404</h2>
-              <h2 className="text-6xl text-pink-500 text-center capitalize">opps! page Not found</h2>
-            </div>
-          }
-        ]
-
+            element: (
+              <div className="my-6">
+                <h2 className="text-6xl text-pink-500 text-center">404</h2>
+                <h2 className="text-6xl text-pink-500 text-center capitalize">
+                  opps! page Not found
+                </h2>
+              </div>
+            ),
+          },
+        ],
       },
-    ]
+    ],
   },
   {
     path: "*",
-    element: <div className="my-6">
-      <h2 className="text-6xl text-pink-500 text-center">404</h2>
-      <h2 className="text-6xl text-pink-500 text-center capitalize">opps! page Not found</h2>
-    </div>
-  }
+    element: (
+      <div className="my-6">
+        <h2 className="text-6xl text-pink-500 text-center">404</h2>
+        <h2 className="text-6xl text-pink-500 text-center capitalize">
+          opps! page Not found
+        </h2>
+      </div>
+    ),
+  },
 ]);
 
-
-export default router
+export default router;

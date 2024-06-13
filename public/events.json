@@ -1,0 +1,102 @@
+[
+  {
+    "_id": "e001",
+    "img": "https://img.freepik.com/free-photo/man-watching-movie-theater-seats-spectacle-generative-ai_188544-7929.jpg",
+    "title": "Spring Music Festival",
+    "description": "A festival celebrating spring with live music performances.",
+    "date": "2024-12-20",
+    "time": "14:00",
+    "ticketPrice": 250,
+    "location": "Radium Community Center"
+  },
+  {
+    "_id": "e002",
+    "img": "https://img.freepik.com/free-photo/man-watching-movie-theater-seats-spectacle-generative-ai_188544-7929.jpg",
+    "title": "Tech Innovators Conference",
+    "description": "Join leading tech innovators for a day of insightful talks and networking.",
+    "date": "2024-12-15",
+    "time": "09:00",
+    "ticketPrice": 250,
+    "location": "Radium Community Center"
+  },
+  {
+    "_id": "e003",
+    "img": "https://img.freepik.com/free-photo/man-watching-movie-theater-seats-spectacle-generative-ai_188544-7929.jpg",
+    "title": "Gourmet Food Expo",
+    "description": "Sample gourmet dishes from top chefs around the world.",
+    "date": "2024-12-10",
+    "time": "11:00",
+    "ticketPrice": 250,
+    "location": "Radium Community Center"
+  },
+  {
+    "_id": "e004",
+    "img": "https://img.freepik.com/free-photo/man-watching-movie-theater-seats-spectacle-generative-ai_188544-7929.jpg",
+    "title": "Art & Craft Fair",
+    "description": "Discover unique handmade crafts and artwork from local artists.",
+    "date": "2024-12-05",
+    "time": "10:00",
+    "ticketPrice": 250,
+    "location": "Radium Community Center"
+  },
+  {
+    "_id": "e005",
+    "img": "https://img.freepik.com/free-photo/man-watching-movie-theater-seats-spectacle-generative-ai_188544-7929.jpg",
+    "title": "Summer Yoga Retreat",
+    "description": "Rejuvenate your body and mind at our summer yoga retreat.",
+    "date": "2024-12-12",
+    "time": "08:00",
+    "ticketPrice": 250,
+    "location": "Radium Community Center"
+  },
+  {
+    "_id": "e006",
+    "img": "https://img.freepik.com/free-photo/man-watching-movie-theater-seats-spectacle-generative-ai_188544-7929.jpg",
+    "title": "Science Fiction Convention",
+    "description": "Meet your favorite sci-fi authors and explore new worlds.",
+    "date": "2024-12-25",
+    "time": "13:00",
+    "ticketPrice": 250,
+    "location": "Radium Community Center"
+  },
+  {
+    "_id": "e007",
+    "img": "https://img.freepik.com/free-photo/man-watching-movie-theater-seats-spectacle-generative-ai_188544-7929.jpg",
+    "title": "Charity Fun Run",
+    "description": "Run for a cause and help raise funds for local charities.",
+    "date": "2024-12-18",
+    "time": "07:00",
+    "ticketPrice": 250,
+    "location": "Radium Community Center"
+  },
+  {
+    "_id": "e008",
+    "img": "https://img.freepik.com/free-photo/man-watching-movie-theater-seats-spectacle-generative-ai_188544-7929.jpg",
+    "title": "Winter Wonderland Market",
+    "description": "Enjoy holiday shopping and festive treats at our winter market.",
+    "date": "2024-12-05",
+    "time": "16:00",
+    "ticketPrice": 250,
+    "location": "Radium Community Center"
+  },
+  {
+    "_id": "e009",
+    "img": "https://img.freepik.com/free-photo/man-watching-movie-theater-seats-spectacle-generative-ai_188544-7929.jpg",
+    "title": "New Year's Eve Gala",
+    "description": "Ring in the new year with a spectacular gala event.",
+    "date": "2024-12-31",
+    "time": "20:00",
+    "ticketPrice": 250,
+    "location": "Radium Community Center"
+  },
+  {
+    "_id": "e010",
+    "img": "https://img.freepik.com/free-photo/man-watching-movie-theater-seats-spectacle-generative-ai_188544-7929.jpg",
+    "title": "Culinary Workshop",
+    "description": "Learn new cooking techniques from master chefs.",
+    "date": "2024-12-20",
+    "time": "15:00",
+    "ticketPrice": 250,
+    "location": "Radium Community Center"
+  }
+]

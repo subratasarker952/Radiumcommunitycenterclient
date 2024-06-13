@@ -1,7 +1,6 @@
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import auth from "../Firebase/firebase.config";
 import { useLocation, useNavigate } from "react-router-dom";
-import { userSendToDb } from "../../hooks/utilityFunctions";
 
 
 const provider = new GoogleAuthProvider();
@@ -20,7 +19,6 @@ const GoogleLogin = () => {
                 const token = credential.accessToken;
                 // The signed-in user info.
                 const user = result.user;
-                userSendToDb(user.displayName, user.email)
                 navigate(from)
             
                

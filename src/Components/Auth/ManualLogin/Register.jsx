@@ -1,6 +1,5 @@
 import { NavLink, Navigate, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-import { userSendToDb } from "../../hooks/utilityFunctions";
 
 
 const Register = () => {
@@ -24,7 +23,6 @@ const Register = () => {
         createUser(email, password)
             .then(() => {
                 updateUser({ displayName, photoURL }).then().catch(err => setErr(err.code))
-                userSendToDb(displayName, email)
                 navigate(from)
             })
             .catch(error => {

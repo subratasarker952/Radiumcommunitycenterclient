@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
-import useOrderByTranId from "../../Components/hooks/useOrderByTranId";
-import Loading from "../../Components/Shared/Loading/Loading";
+import Loading from "../../../Components/Shared/Loading/Loading";
+import useOrderByTranId from "../../../Components/hooks/useOrderByTranId";
 
 const PaymentSuccess = () => {
   const location = useLocation();
