@@ -31,13 +31,15 @@ const Booking = ({ event }) => {
         paymentMethod: "online",
         paymentStatus: "due",
       };
-      axios
-        .patch(
-          `http://localhost:5000/payments/initialize?email=${user?.email}`,
-          newBookingData
-        )
-        .then((res) => {
-          window.location.replace(res.data.url);
+      fetch(`http://localhost:5000/payments/initialize`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newBookingData),
+      }).then((res) => res.json())
+        .then((data) => {
+          window.location.replace(data.url);
         });
     }
   };

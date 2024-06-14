@@ -1,15 +1,9 @@
-import { Link, NavLink, Navigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { FaSearch, FaUser } from "react-icons/fa";
-// import useRole from "../../hooks/useRole";
 
 const Header = () => {
   const { user, logOutUser } = useAuth();
-  // const { userWithRole } = useRole();
-
-  // if (userWithRole.role == "admin") {
-  //   return <Navigate to="/dashboard"></Navigate>;
-  // }
 
   const handleLogOutUser = () => {
     logOutUser()
