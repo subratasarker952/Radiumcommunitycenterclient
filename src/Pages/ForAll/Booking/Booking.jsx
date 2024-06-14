@@ -1,6 +1,5 @@
 import useAuth from "../../../Components/hooks/useAuth";
 import { useState } from "react";
-import axios from "axios";
 
 const Booking = ({ event }) => {
   const { user } = useAuth();

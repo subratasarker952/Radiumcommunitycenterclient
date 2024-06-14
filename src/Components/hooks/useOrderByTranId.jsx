@@ -3,16 +3,27 @@ import useAuth from "./useAuth";
 import axios from "axios";
 
 const useOrderByTranId = (tran_id) => {
-    const { user } = useAuth()
-    const { isPending: orderIsLoading, error: orderError, data: order = {} } = useQuery({
-        queryKey: ['order', user?.email, tran_id],
-        enabled: (user !== null),
-        queryFn: async () => {
-            const res = await axios.get(`http://localhost:5000/bookings/${tran_id}?email=${user?.email}`)
-            return res.data
+  const { user } = useAuth();
+  const {
+    isPending: bookingIsLoading,
+    error: orderError,
+    data: booking = {},
+  } = useQuery({
+    queryKey: ["booking", user?.email, tran_id],
+    enabled: user !== null,
+    queryFn: async () => {
+      const res = await axios.get(
+        `http://localhost:5000/bookings/tran_id/${tran_id}?email=${user?.email}`,
+        {
+          headers: {
+            authorization: `bearer ${localStorage.getItem("token")}`,
+          },
         }
-    })
-    return { orderIsLoading, orderError, order }
+      );
+      return res.data;
+    },
+  });
+  return { bookingIsLoading, orderError, booking };
 };
 
 export default useOrderByTranId;

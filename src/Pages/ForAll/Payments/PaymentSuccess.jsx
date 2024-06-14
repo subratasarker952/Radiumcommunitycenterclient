@@ -6,20 +6,20 @@ const PaymentSuccess = () => {
   const location = useLocation();
   const query = new URLSearchParams(location.search);
   const tran_id = query.get("tran_id");
-  const { orderIsLoading, order } = useOrderByTranId(tran_id);
-  if (orderIsLoading) return <Loading></Loading>;
-  if(!order) return <p>No order found in this id</p>
+  const { bookingIsLoading, booking } = useOrderByTranId(tran_id);
+  console.log(booking)
+  if (bookingIsLoading) return <Loading></Loading>;
+  if (!booking) return <p>No order found in this id</p>;
   const {
     date,
     amount,
-    currency,
-    name,
+    title,
     email,
     paidAt,
     paymentMethod,
     paymentStatus,
-    phone,
-  } = order;
+    mobile,
+  } = booking;
 
   return (
     <div className="w-[500px] print:absolute top-0 left-0 right-0 mx-auto text-xl">
@@ -28,15 +28,15 @@ const PaymentSuccess = () => {
       <div>
         <div className="flex justify-between">
           <p>Date</p>
-          <p>{date.split("T")[0]}</p>
+          <p>{date}</p>
         </div>
         <div className="flex justify-between">
           <p>Tran id</p>
           <p>{tran_id}</p>
         </div>
         <div className="flex justify-between">
-          <p>Name</p>
-          <p>{name}</p>
+          <p>Event name:-</p>
+          <p>{title}</p>
         </div>
         <div className="flex justify-between">
           <p>Email</p>
@@ -44,12 +44,9 @@ const PaymentSuccess = () => {
         </div>
         <div className="flex justify-between">
           <p>Phone</p>
-          <p>{phone}</p>
+          <p>{mobile}</p>
         </div>
-        <div className="flex justify-between">
-          <p>Currency</p>
-          <p>{currency}</p>
-        </div>
+
         <div className="flex justify-between">
           <p>Payment status</p>
           <p>{paymentStatus}</p>
@@ -60,7 +57,7 @@ const PaymentSuccess = () => {
         </div>
         <div className="flex justify-between">
           <p>Payment Time</p>
-          <p>{paidAt.split("T")[0]}</p>
+          <p>{paidAt}</p>
         </div>
         <div className="flex justify-between">
           <p>Amount</p>

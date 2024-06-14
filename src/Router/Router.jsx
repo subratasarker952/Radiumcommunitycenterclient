@@ -10,12 +10,10 @@ import Users from "../Pages/Admin/Users";
 // import AdminOnly from "../Components/Auth/AdminOnly/AdminOnly";
 import UserDashboardLayout from "../Pages/DashboardLayout/User/UserDahboardLayout";
 import UserDashboard from "../Pages/DashboardLayout/User/UserDashboard";
-import Payments from "../Pages/User/Payments/Payments";
 // import Profile from "../Pages/User/Profile/Profile";
 import Events from "../Pages/ForAll/Events/Events";
 import EventInDetails from "../Pages/ForAll/EventInDetails/EventInDetails";
 import Booking from "../Pages/ForAll/Booking/Booking";
-import Payment from "../Pages/ForAll/Payment/Payment";
 import EventsInAdmin from "../Pages/Admin/EventsInAdmin";
 import AllBooking from "../Pages/Admin/AllBooking";
 import AllPayment from "../Pages/Admin/AllPayment";
@@ -23,6 +21,7 @@ import PaymentSuccess from "../Pages/ForAll/Payments/PaymentSuccess";
 import PaymentFail from "../Pages/ForAll/Payments/PaymentFail";
 import PaymentCancel from "../Pages/ForAll/Payments/PaymentCancel";
 import AddEvent from "../Pages/Admin/AddEvent";
+import Tickets from "../Pages/User/Tickets/Tickets";
 
 const router = createBrowserRouter([
   {
@@ -86,16 +85,8 @@ const router = createBrowserRouter([
             element: <Booking />,
           },
           {
-            path: "payment",
-            element: <Payment />,
-          },
-          {
-            path: "payments",
-            element: <Payments />,
-          },
-          {
-            path: "bookingHistory",
-            element: <h2>Booking history</h2>,
+            path: "tickets",
+            element: <Tickets />,
           },
           {
             path: "*",
