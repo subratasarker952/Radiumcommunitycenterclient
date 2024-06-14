@@ -7,14 +7,17 @@ const PaymentSuccess = () => {
   const query = new URLSearchParams(location.search);
   const tran_id = query.get("tran_id");
   const { bookingIsLoading, booking } = useOrderByTranId(tran_id);
-  console.log(booking)
+  console.log(booking);
   if (bookingIsLoading) return <Loading></Loading>;
   if (!booking) return <p>No order found in this id</p>;
   const {
+    img,
     date,
+    seat,
     amount,
     title,
     email,
+    location: eventLocation,
     paidAt,
     paymentMethod,
     paymentStatus,
@@ -22,55 +25,32 @@ const PaymentSuccess = () => {
   } = booking;
 
   return (
-    <div className="w-[500px] print:absolute top-0 left-0 right-0 mx-auto text-xl">
-      <p className="font-bold text-3xl">Payment Info</p>
-      <hr className="my-5 border border-red-500" />
-      <div>
-        <div className="flex justify-between">
-          <p>Date</p>
-          <p>{date}</p>
+        <div className="card w-[500px] mx-auto mt-3 bg-base-100 shadow-xl">
+          <figure className="px-3 pt-3">
+            <img src={img} alt={title} className="rounded-xl h-[50px]" />
+          </figure>
+          <div className="card-body items-center text-center">
+            <h2 className="card-title">Event:- {title}</h2>
+            <h2 className="card-title">Date:- {date}</h2>
+            <h2 className="card-title">Number of Seat:- {seat}  </h2>
+            <h2 className="card-title">Total Amount:- {amount} /-</h2>
+            <h2 className="card-title">Email:-{email}</h2>
+            <h2 className="card-title">Mobile:-{mobile}</h2>
+            <h2 className="card-title">Location:-{eventLocation}</h2>
+            <h2 className="card-title">Paid At:-{paidAt}</h2>
+            <h2 className="card-title capitalize">
+              {paymentStatus} || {paymentMethod}
+            </h2>
+            <div className="card-actions">
+              <button
+                className="btn print:hidden btn-sm block bg-pink-500 w-full"
+                onClick={() => window.print()}
+              >
+                Print
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="flex justify-between">
-          <p>Tran id</p>
-          <p>{tran_id}</p>
-        </div>
-        <div className="flex justify-between">
-          <p>Event name:-</p>
-          <p>{title}</p>
-        </div>
-        <div className="flex justify-between">
-          <p>Email</p>
-          <p>{email}</p>
-        </div>
-        <div className="flex justify-between">
-          <p>Phone</p>
-          <p>{mobile}</p>
-        </div>
-
-        <div className="flex justify-between">
-          <p>Payment status</p>
-          <p>{paymentStatus}</p>
-        </div>
-        <div className="flex justify-between">
-          <p>Payment Method</p>
-          <p>{paymentMethod}</p>
-        </div>
-        <div className="flex justify-between">
-          <p>Payment Time</p>
-          <p>{paidAt}</p>
-        </div>
-        <div className="flex justify-between">
-          <p>Amount</p>
-          <p>{amount} /-</p>
-        </div>
-      </div>
-      <button
-        className="btn print:hidden btn-sm block bg-pink-500 w-full"
-        onClick={() => window.print()}
-      >
-        Print
-      </button>
-    </div>
   );
 };
 
