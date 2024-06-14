@@ -1,18 +1,30 @@
-import Loading from "../../../Components/Shared/Loading/Loading";
-import useBookings from "../../../Components/hooks/useBookings";
+import { useEffect, useState } from "react";
 import BookingCard from "./BookingCard";
+import useAuth from "../../../Components/hooks/useAuth";
 
 const Tickets = () => {
-  const { bookingIsLoading, bookingError, bookings } = useBookings;
-  if (bookingIsLoading) return <Loading />;
-  if (bookingError) console.log(bookingError);
-  console.log(bookings);
+  const { user } = useAuth();
+  const [bookings, setBookings] = useState([]);
+  useEffect(() => {
+    fetch(
+      `http://localhost:5000/bookings/email/${user?.email}?email=${user?.email}`,
+      {
+        method: "GET",
+        headers: {
+          authorization: `bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    )
+      .then((response) => response.json())
+      .then((json) => setBookings(json));
+  }, [bookings, user]);
+
   return (
     <div>
-      <div>
-        {/* {bookings.map((booking) => (
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+         {bookings.map((booking) => (
           <BookingCard key={booking._id} booking={booking}></BookingCard>
-        ))} */}
+        ))}
       </div>
     </div>
   );

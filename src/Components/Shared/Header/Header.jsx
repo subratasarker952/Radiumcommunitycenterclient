@@ -32,6 +32,20 @@ const Header = () => {
               <FaSearch></FaSearch>
             </button>
           </div>
+          
+          <NavLink
+            className="p-2 rounded-lg mx-2 hover:bg-black hover:text-white"
+            to="/"
+          >
+            Home
+          </NavLink>
+          <NavLink
+            className="p-2 rounded-lg mx-2 hover:bg-black hover:text-white"
+            to="/events"
+          >
+            Events
+          </NavLink>
+        
         </div>
         <div className="flex-1 gap-2 justify-end">
           {user ? (
@@ -53,23 +67,13 @@ const Header = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link className="btn" to="/user/booking">
-                    Booking
+                  <Link className="btn" to="/events">
+                    Events
                   </Link>
                 </li>
                 <li>
-                  <Link className="btn" to="/user/payment">
-                    Payment
-                  </Link>
-                </li>
-                <li>
-                  <Link className="btn" to="/user/bookingHistory">
-                   BookingHistory
-                  </Link>
-                </li>
-                <li>
-                  <Link className="btn" to="/user/payments">
-                    Payments
+                  <Link className="btn" to="/user/tickets">
+                    Tickets
                   </Link>
                 </li>
 

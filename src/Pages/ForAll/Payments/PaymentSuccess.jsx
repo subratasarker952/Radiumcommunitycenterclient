@@ -27,7 +27,7 @@ const PaymentSuccess = () => {
   return (
         <div className="card w-[500px] mx-auto mt-3 bg-base-100 shadow-xl">
           <figure className="px-3 pt-3">
-            <img src={img} alt={title} className="rounded-xl h-[50px]" />
+            <img src={img} alt={title} className="rounded-xl h-[150px] w-[200px]" />
           </figure>
           <div className="card-body items-center text-center">
             <h2 className="card-title">Event:- {title}</h2>

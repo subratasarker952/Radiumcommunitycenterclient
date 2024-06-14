@@ -4,7 +4,7 @@ import { useState } from "react";
 const Booking = ({ event }) => {
   const { user } = useAuth();
   const [seat, setSeat] = useState(1);
-  const { _id, title, date, time, location, ticketPrice } = event;
+  const { _id,img, title, date, time, location, ticketPrice } = event;
 
   const handleForm = (e) => {
     e.preventDefault();
@@ -14,6 +14,7 @@ const Booking = ({ event }) => {
     const bookingData = {
       eventId: _id,
       email: user?.email,
+      img,
       seat,
       title,
       date,

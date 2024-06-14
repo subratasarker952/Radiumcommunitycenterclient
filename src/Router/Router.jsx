@@ -22,6 +22,7 @@ import PaymentFail from "../Pages/ForAll/Payments/PaymentFail";
 import PaymentCancel from "../Pages/ForAll/Payments/PaymentCancel";
 import AddEvent from "../Pages/Admin/AddEvent";
 import Tickets from "../Pages/User/Tickets/Tickets";
+import Profile from "../Pages/User/Profile/Profile";
 
 const router = createBrowserRouter([
   {
@@ -76,15 +77,11 @@ const router = createBrowserRouter([
             path: "",
             element: <UserDashboard />,
           },
-          // {
-          //   path: "profile",
-          //   element: <Profile />,
-          // },
           {
-            path: "booking",
-            element: <Booking />,
+            path: "profile",
+            element: <Profile />,
           },
-          {
+            {
             path: "tickets",
             element: <Tickets />,
           },
