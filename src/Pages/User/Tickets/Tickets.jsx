@@ -7,7 +7,7 @@ const Tickets = () => {
   const [bookings, setBookings] = useState([]);
   useEffect(() => {
     fetch(
-      `http://localhost:5000/bookings/email/${user?.email}?email=${user?.email}`,
+      `https://radiumcommnitycenterserver.vercel.app/bookings/email/${user?.email}?email=${user?.email}`,
       {
         method: "GET",
         headers: {

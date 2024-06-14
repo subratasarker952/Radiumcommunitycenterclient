@@ -41,7 +41,7 @@ const router = createBrowserRouter([
         path: "/events/:id",
         element: <EventInDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/events/${params.id}`),
+          fetch(`https://radiumcommnitycenterserver.vercel.app/events/${params.id}`),
       },
 
       {

@@ -14,7 +14,7 @@ const useBookings = () => {
     enabled: user !== null,
     queryFn: async () => {
       const res = await axios.get(
-        `http://localhost:5000/booking/email/:${user?.email}?email=${user?.email}`,{
+        `https://radiumcommnitycenterserver.vercel.app/booking/email/:${user?.email}?email=${user?.email}`,{
           headers:{
             authorization: `bearer ${localStorage.getItem('token')}`
           }

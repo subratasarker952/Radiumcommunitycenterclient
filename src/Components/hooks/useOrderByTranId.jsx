@@ -13,7 +13,7 @@ const useOrderByTranId = (tran_id) => {
     enabled: user !== null,
     queryFn: async () => {
       const res = await axios.get(
-        `http://localhost:5000/bookings/tran_id/${tran_id}?email=${user?.email}`,
+        `https://radiumcommnitycenterserver.vercel.app/bookings/tran_id/${tran_id}?email=${user?.email}`,
         {
           headers: {
             authorization: `bearer ${localStorage.getItem("token")}`,

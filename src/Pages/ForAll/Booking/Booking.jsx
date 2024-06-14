@@ -31,7 +31,7 @@ const Booking = ({ event }) => {
         paymentMethod: "online",
         paymentStatus: "due",
       };
-      fetch(`http://localhost:5000/payments/initialize`, {
+      fetch(`https://radiumcommnitycenterserver.vercel.app/payments/initialize`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

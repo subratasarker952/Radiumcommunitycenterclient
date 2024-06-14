@@ -4,7 +4,7 @@ import EventsCard from "./EventsCard";
 const Events = () => {
   const [events, setEvents] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/events")
+    fetch("https://radiumcommnitycenterserver.vercel.app/events")
       .then((response) => response.json())
       .then((json) => setEvents(json));
   }, [events]);

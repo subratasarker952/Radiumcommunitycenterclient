@@ -27,10 +27,10 @@ const AuthProvider = ({ children }) => {
         setUser(currentUser);
         const email = currentUser.email;
         
-        axios.post("http://localhost:5000/users", { email: email, role: "user" })
+        axios.post("https://radiumcommnitycenterserver.vercel.app/users", { email: email, role: "user" })
           .then(()=> {})
 
-        axios.post("http://localhost:5000/jwt", { email })
+        axios.post("https://radiumcommnitycenterserver.vercel.app/jwt", { email })
           .then((res) => localStorage.setItem("token", res.data.token));
         setUserLoading(false);
         // ...
